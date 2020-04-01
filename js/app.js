@@ -12,10 +12,9 @@ Image.prototype.render = function(container) {
     let $container = $(container);
     let $template = $container.find('#photo-template');
     let $image = $template.clone();
-    $image.removeId('#photo-template');
-    $image.find('.image-name').text(this.title);
-    $image.find('img.image-display').attr(
-        'src', this.image_url);
+    $template.removeAttr('id');
+    $image.find('h2.image-name').text(this.title);
+    $image.find('img.image-display').attr('src', this.image_url);
     $image.find('p').text(this.description);
     $container.append($image);
 }
@@ -28,6 +27,6 @@ const ajaxSettings = {
 $.ajax('../data/page-1.json', ajaxSettings).then(function (data) {
         data.forEach((image) => {
             let displayImage = new Image(image);
-            displayImage.render('main section');
+            displayImage.render('main');
         });
     });
