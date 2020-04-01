@@ -4,9 +4,9 @@ Creating a photo gallery with filters using jquery.  Predefined library of image
 
 ## Feature 1 - Display Images
 
-Estimate of time needed:
+Estimate of time needed: 1 hour
 
-Start time:
+Start time: 10:30
 
 Finish time:
 
