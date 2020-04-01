@@ -24,9 +24,9 @@ Actual time needed:
 
 ## Feature 3 - Style the application
 
-Estimate of time needed:
+Estimate of time needed: 1 hour
 
-Start time:
+Start time: 1:15
 
 Finish time:
 
