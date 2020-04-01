@@ -20,6 +20,7 @@ Image.prototype.render = function (container) {
     $image.find('img.image-display').attr('src', this.image_url);
     $image.find('p').text(this.description);
     $container.append($image);
+    makeMyMenu(this);
 }
 
 function makeMyMenu(object) {
@@ -36,7 +37,6 @@ function makeMyMenu(object) {
         $menu.append($createOptions);
     }
 };
-
 
 
 const ajaxSettings = {
