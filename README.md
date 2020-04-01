@@ -14,9 +14,9 @@ Actual time needed: 2 hours
 
 ## Feature 2 - Filter Images
 
-Estimate of time needed:
+Estimate of time needed: 1 hour
 
-Start time:
+Start time: 12:30
 
 Finish time:
 
