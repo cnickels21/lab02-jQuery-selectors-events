@@ -1,0 +1,14 @@
+body {
+
+    background-color: bisque;
+    text-align: center;
+}
+
+#photoTemplate {
+    border: 2px solid black;
+    float: left;
+    width: 240px;
+    height: 250px;
+    text-align: center;
+    margin: auto;
+}
