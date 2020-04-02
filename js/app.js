@@ -41,11 +41,11 @@ function makeMyMenu(image) {
     }
 };
 
-
 const ajaxSettings = {
     method: 'get',
     dataType: 'json'
 };
+
 
 let images = null;
 
@@ -58,6 +58,7 @@ $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
 function renderImages(filter) {
     $('main').empty();
     images.forEach((image) => {
+
         let displayImage = new Image(image);
         if (displayImage.keyword === filter) {
             displayImage.render('main');
