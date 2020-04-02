@@ -1,5 +1,7 @@
 'use strict';
 
+//ajax into function that takes in page1/page2
+
 const filter = [];
 
 function Image(image) {
@@ -9,6 +11,11 @@ function Image(image) {
     this.keyword = image.keyword;
     this.horns = image.horns;
     filter.push(this);
+
+    // for (let key in image) {
+    //     this[key] = image[key];
+    // }
+
 }
 
 Image.prototype.render = function (container) {
@@ -25,14 +32,9 @@ Image.prototype.render = function (container) {
 const keywords = [];
 function makeMyMenu(image) {
     let $menu = $('.dropdown');
-    // let $newOptions = $('.options');
-    // let $createOptions = $newOptions.clone();
-    // $createOptions.removeClass('options');
-
     let $createOptions = $("<option>");
     $createOptions.text(image.keyword);
     $createOptions.val(image.keyword);
-
     if (!keywords.includes(image.keyword)) {
         keywords.push(image.keyword);
         $menu.append($createOptions);
@@ -49,8 +51,6 @@ let images = null;
 $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     images = data;
     renderImages('default');
-
-    //images.forEach(makeMyMenu);
     images.forEach(image => makeMyMenu(image));
 });
 
@@ -66,11 +66,9 @@ function renderImages(filter) {
     });
 }
 
+
 $('.dropdown').on('change', function() {
     let $this = $(this),
         filterValue = $this.val();
-
-    console.log(filterValue);
-
     renderImages(filterValue);
 })
