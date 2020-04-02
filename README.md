@@ -38,9 +38,9 @@ Estimate of time needed: 45 minutes
 
 Start time: 11:30
 
-Finish time:
+Finish time:  11:45
 
-Actual time needed:
+Actual time needed: 15 minutes
 
 ## Feature 5 - Templating
 

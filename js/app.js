@@ -49,12 +49,34 @@ const ajaxSettings = {
 
 
 let images = null;
+let $resetFilter = $('.dropdown');
 
 $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     images = data;
     renderImages('default');
     images.forEach(image => makeMyMenu(image));
 });
+
+$('.page1').on('click', function() {
+$.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
+    images = data;
+    renderImages('default');
+    images.forEach(image => {
+        makeMyMenu(image);
+    })
+});
+})
+
+$('.page2').on('click', function() {
+$.ajax('./data/page-2.json', ajaxSettings).then(function (data) {
+    images = data;
+    renderImages('default');
+    images.forEach(image => {
+        makeMyMenu(image);
+    })
+});
+})
+
 
 function renderImages(filter) {
     $('main').empty();
