@@ -4,11 +4,20 @@ body {
     text-align: center;
 }
 
-#photoTemplate {
+.image-display {
     border: 2px solid black;
-    float: left;
+    /* float: left; */
     width: 240px;
     height: 250px;
     text-align: center;
     margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    overflow-wrap: break-word;
 }
+
+/* section {
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+} */

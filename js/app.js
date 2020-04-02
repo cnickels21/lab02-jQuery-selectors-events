@@ -20,23 +20,23 @@ Image.prototype.render = function (container) {
     $image.find('img.image-display').attr('src', this.image_url);
     $image.find('p').text(this.description);
     $container.append($image);
-    makeMyMenu(this);
+    // makeMyMenu(this);
 }
 
-function makeMyMenu(object) {
-    let $menu = $('.dropdown');
-    let $newOptions = $('.options');
-    let $createOptions = $newOptions.clone();
-    $createOptions.removeClass();
-    $createOptions.text(object.keyword);
+// function makeMyMenu(object) {
+//     let $menu = $('.dropdown');
+//     let $newOptions = $('.options');
+//     let $createOptions = $newOptions.clone();
+//     $createOptions.removeClass();
+//     $createOptions.text(object.keyword);
 
-    if (keywords.every(function (element) {
-        return element !== object.keyword;
-    })) {
-        keywords.push(object.keyword);
-        $menu.append($createOptions);
-    }
-};
+//     if (keywords.every(function (element) {
+//         return element !== object.keyword;
+//     })) {
+//         keywords.push(object.keyword);
+//         $menu.append($createOptions);
+//     }
+// };
 
 
 const ajaxSettings = {
@@ -44,7 +44,7 @@ const ajaxSettings = {
     dataType: 'json'
 };
 
-$.ajax('../data/page-1.json', ajaxSettings).then(function (data) {
+$.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     data.forEach((image) => {
         let displayImage = new Image(image);
         displayImage.render('main');
