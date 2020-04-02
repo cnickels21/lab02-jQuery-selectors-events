@@ -22,6 +22,7 @@ Image.prototype.render = function (container) {
     let $container = $(container);
     let $template = $('#photo-template');
     let $image = $template.clone();
+    $image.removeClass();
     $image.removeAttr('id');
     $image.find('h2.image-name').text(this.title);
     $image.find('img.image-display').attr('src', this.image_url);
@@ -57,6 +58,7 @@ $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
 
 function renderImages(filter) {
     $('main').empty();
+    
     images.forEach((image) => {
 
         let displayImage = new Image(image);
@@ -70,6 +72,11 @@ function renderImages(filter) {
 
 
 $('.dropdown').on('change', function() {
+    let $value = $('.dropdown option:selected').text();
+    if ($value === 'Filter by Keyword') {
+        location.reload();
+        console.log($value);
+    }
     let $this = $(this),
         filterValue = $this.val();
     renderImages(filterValue);
