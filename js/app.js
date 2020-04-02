@@ -34,6 +34,7 @@ function makeMyMenu(image) {
     let $menu = $('.dropdown');
     let $createOptions = $("<option>");
     $createOptions.text(image.keyword);
+    $createOptions.val(image.keyword);
     if (!keywords.includes(image.keyword)) {
         keywords.push(image.keyword);
         $menu.append($createOptions);
@@ -47,7 +48,6 @@ const ajaxSettings = {
 };
 
 let images = null;
-
 $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     images = data;
     renderImages('default');
@@ -66,7 +66,8 @@ function renderImages(filter) {
     });
 }
 
-$('.dropdown').on('change', function () {
+
+$('.dropdown').on('change', function() {
     let $this = $(this),
         filterValue = $this.val();
     renderImages(filterValue);
