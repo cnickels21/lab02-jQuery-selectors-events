@@ -58,9 +58,7 @@ $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
 
 function renderImages(filter) {
     $('main').empty();
-    
     images.forEach((image) => {
-
         let displayImage = new Image(image);
         if (displayImage.keyword === filter) {
             displayImage.render('main');
@@ -75,7 +73,6 @@ $('.dropdown').on('change', function() {
     let $value = $('.dropdown option:selected').text();
     if ($value === 'Filter by Keyword') {
         location.reload();
-        console.log($value);
     }
     let $this = $(this),
         filterValue = $this.val();
