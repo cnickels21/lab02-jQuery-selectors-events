@@ -4,20 +4,25 @@ body {
     text-align: center;
 }
 
+.image-name {
+    font-family: 'Gotu', sans-serif;
+}
+
 .image-display {
     border: 2px solid black;
-    /* float: left; */
     width: 240px;
     height: 250px;
     text-align: center;
     margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     overflow-wrap: break-word;
+    flex-shrink: initial;
+    flex-basis: 0;
 }
 
-/* section {
-    border: 2px solid black;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-} */
+section {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-shrink: initial;
+    border: 2px black;
+}
