@@ -1,7 +1,5 @@
 'use strict';
 
-//ajax into function that takes in page1/page2
-
 const filter = [];
 
 function Image(image) {
@@ -18,6 +16,20 @@ function Image(image) {
 
 }
 
+
+//Mustache render prototype
+
+// let animalId = '#animal-template';
+// Image.prototype.render = function () {
+//     let animal = $(animalId).html();
+//     let container = $(`<section></section>`).clone();
+//     container.append(`<h2 class="image-name">{{title}}</h2><img src="{{image_url}}" alt="{{title}}" class="image-display" />`);
+//     let html = Mustache.render(animal, this);
+//     return html;
+// }
+
+// jQuery render prototype
+
 Image.prototype.render = function (container) {
     let $container = $(container);
     let $template = $('#photo-template');
@@ -30,7 +42,12 @@ Image.prototype.render = function (container) {
     $container.append($image);
 }
 
+
+// reset drop down on page load
+
+// let $resetFilter = $('.dropdown');
 const keywords = [];
+
 function makeMyMenu(image) {
     let $menu = $('.dropdown');
     let $createOptions = $("<option>");
@@ -47,9 +64,7 @@ const ajaxSettings = {
     dataType: 'json'
 };
 
-
 let images = null;
-let $resetFilter = $('.dropdown');
 
 $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     images = data;
@@ -77,7 +92,6 @@ $.ajax('./data/page-2.json', ajaxSettings).then(function (data) {
 });
 })
 
-
 function renderImages(filter) {
     $('main').empty();
     images.forEach((image) => {
@@ -100,3 +114,7 @@ $('.dropdown').on('change', function() {
         filterValue = $this.val();
     renderImages(filterValue);
 })
+
+// filter.forEach(newAnimal => {
+//     $('#photo-template').append(newAnimal.render());
+//   });

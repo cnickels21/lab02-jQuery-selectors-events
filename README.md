@@ -46,7 +46,7 @@ Actual time needed: 15 minutes
 
 Estimate of time needed: 1 hour
 
-Start time:
+Start time: 11:45
 
 Finish time:
 
@@ -56,7 +56,7 @@ Actual time needed:
 
 Estimate of time needed: 45 minutes
 
-Start time:
+Start time: 12:00
 
 Finish time:
 
