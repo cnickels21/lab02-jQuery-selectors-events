@@ -18,9 +18,9 @@ Estimate of time needed: 1 hour
 
 Start time: 12:30
 
-Finish time:
+Finish time: 10:00 P.M.
 
-Actual time needed:
+Actual time needed: Half of the day
 
 ## Feature 3 - Style the application
 

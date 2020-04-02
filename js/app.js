@@ -48,6 +48,7 @@ const ajaxSettings = {
 };
 
 let images = null;
+
 $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     images = data;
     renderImages('default');
