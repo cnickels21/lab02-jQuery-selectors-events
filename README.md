@@ -28,6 +28,46 @@ Estimate of time needed: 1 hour
 
 Start time: 1:15
 
+Finish time: 11 Am the next day
+
+Actual time needed: 2 hours cumulatively
+
+## Feature 4 - Pagination
+
+Estimate of time needed: 45 minutes
+
+Start time: 11:30
+
+Finish time:  11:45
+
+Actual time needed: 15 minutes
+
+## Feature 5 - Templating
+
+Estimate of time needed: 1 hour
+
+Start time: 11:45
+
+Finish time:
+
+Actual time needed:
+
+## Feature 6 - Styling with Flexbox
+
+Estimate of time needed: 45 minutes
+
+Start time: 12:00
+
+Finish time:
+
+Actual time needed:
+
+## Feature 7 - Sort the Images
+
+Estimate of time needed: 2 hours
+
+Start time:
+
 Finish time:
 
 Actual time needed:

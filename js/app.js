@@ -1,7 +1,5 @@
 'use strict';
 
-//ajax into function that takes in page1/page2
-
 const filter = [];
 
 function Image(image) {
@@ -18,6 +16,20 @@ function Image(image) {
 
 }
 
+
+//Mustache render prototype
+
+// let animalId = '#animal-template';
+// Image.prototype.render = function () {
+//     let animal = $(animalId).html();
+//     let container = $(`<section></section>`).clone();
+//     container.append(`<h2 class="image-name">{{title}}</h2><img src="{{image_url}}" alt="{{title}}" class="image-display" />`);
+//     let html = Mustache.render(animal, this);
+//     return html;
+// }
+
+// jQuery render prototype
+
 Image.prototype.render = function (container) {
     let $container = $(container);
     let $template = $('#photo-template');
@@ -30,7 +42,12 @@ Image.prototype.render = function (container) {
     $container.append($image);
 }
 
+
+// reset drop down on page load
+
+// let $resetFilter = $('.dropdown');
 const keywords = [];
+
 function makeMyMenu(image) {
     let $menu = $('.dropdown');
     let $createOptions = $("<option>");
@@ -47,7 +64,6 @@ const ajaxSettings = {
     dataType: 'json'
 };
 
-
 let images = null;
 
 $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
@@ -56,11 +72,29 @@ $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     images.forEach(image => makeMyMenu(image));
 });
 
+$('.page1').on('click', function() {
+$.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
+    images = data;
+    renderImages('default');
+    images.forEach(image => {
+        makeMyMenu(image);
+    })
+});
+})
+
+$('.page2').on('click', function() {
+$.ajax('./data/page-2.json', ajaxSettings).then(function (data) {
+    images = data;
+    renderImages('default');
+    images.forEach(image => {
+        makeMyMenu(image);
+    })
+});
+})
+
 function renderImages(filter) {
     $('main').empty();
-    
     images.forEach((image) => {
-
         let displayImage = new Image(image);
         if (displayImage.keyword === filter) {
             displayImage.render('main');
@@ -75,9 +109,12 @@ $('.dropdown').on('change', function() {
     let $value = $('.dropdown option:selected').text();
     if ($value === 'Filter by Keyword') {
         location.reload();
-        console.log($value);
     }
     let $this = $(this),
         filterValue = $this.val();
     renderImages(filterValue);
 })
+
+// filter.forEach(newAnimal => {
+//     $('#photo-template').append(newAnimal.render());
+//   });
