@@ -1,6 +1,6 @@
 body {
 
-    background-color: bisque;
+    background-color: lightgrey;
     text-align: center;
 }
 
@@ -15,14 +15,29 @@ body {
     text-align: center;
     margin: auto;
     overflow-wrap: break-word;
-    flex-shrink: initial;
-    flex-basis: 0;
+    /* flex-shrink: initial;
+    flex-basis: 0; */
 }
 
 section {
-    display: inline-flex;
+    /* display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
-    flex-shrink: initial;
+    flex-shrink: initial; */
     border: 2px black;
+    height: 300px
 }
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    color: firebrick;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-shrink: initial; 
+    justify-content: center;
+    }
