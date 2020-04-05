@@ -20,32 +20,27 @@ function Image(image) {
 //Mustache render prototype
 
 // let animalId = '#animal-template';
-// Image.prototype.render = function () {
-//     let animal = $(animalId).html();
-//     let container = $(`<section></section>`).clone();
-//     container.append(`<h2 class="image-name">{{title}}</h2><img src="{{image_url}}" alt="{{title}}" class="image-display" />`);
-//     let html = Mustache.render(animal, this);
-//     return html;
-// }
+
+Image.prototype.render = function () {
+    let animal = $('#animal-template').html();
+    let html = Mustache.render(animal, this);
+    $('main').append(html);
+}
 
 // jQuery render prototype
 
-Image.prototype.render = function (container) {
-    let $container = $(container);
-    let $template = $('#photo-template');
-    let $image = $template.clone();
-    $image.removeClass();
-    $image.removeAttr('id');
-    $image.find('h2.image-name').text(this.title);
-    $image.find('img.image-display').attr('src', this.image_url);
-    $image.find('p').text(this.description);
-    $container.append($image);
-}
+// Image.prototype.render = function (container) {
+//     let $container = $(container);
+//     let $template = $('#photo-template');
+//     let $image = $template.clone();
+//     $image.removeClass();
+//     $image.removeAttr('id');
+//     $image.find('h2.image-name').text(this.title);
+//     $image.find('img.image-display').attr('src', this.image_url);
+//     $image.find('p').text(this.description);
+//     $container.append($image);
+// }
 
-
-// reset drop down on page load
-
-// let $resetFilter = $('.dropdown');
 const keywords = [];
 
 function makeMyMenu(image) {
@@ -69,7 +64,9 @@ let images = null;
 $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     images = data;
     renderImages('default');
-    images.forEach(image => makeMyMenu(image));
+    images.forEach(image => {
+        makeMyMenu(image);
+    });
 });
 
 $('.page1').on('click', function() {
@@ -97,9 +94,9 @@ function renderImages(filter) {
     images.forEach((image) => {
         let displayImage = new Image(image);
         if (displayImage.keyword === filter) {
-            displayImage.render('main');
+            displayImage.render();
         } else if (filter === 'default') {
-            displayImage.render('main');
+            displayImage.render();
         }
     });
 }
@@ -114,7 +111,3 @@ $('.dropdown').on('change', function() {
         filterValue = $this.val();
     renderImages(filterValue);
 })
-
-// filter.forEach(newAnimal => {
-//     $('#photo-template').append(newAnimal.render());
-//   });
