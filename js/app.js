@@ -69,24 +69,24 @@ $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
     });
 });
 
-$('.page1').on('click', function() {
-$.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
-    images = data;
-    renderImages('default');
-    images.forEach(image => {
-        makeMyMenu(image);
-    })
-});
+$('.page1').on('click', function () {
+    $.ajax('./data/page-1.json', ajaxSettings).then(function (data) {
+        images = data;
+        renderImages('default');
+        images.forEach(image => {
+            makeMyMenu(image);
+        })
+    });
 })
 
-$('.page2').on('click', function() {
-$.ajax('./data/page-2.json', ajaxSettings).then(function (data) {
-    images = data;
-    renderImages('default');
-    images.forEach(image => {
-        makeMyMenu(image);
-    })
-});
+$('.page2').on('click', function () {
+    $.ajax('./data/page-2.json', ajaxSettings).then(function (data) {
+        images = data;
+        renderImages('default');
+        images.forEach(image => {
+            makeMyMenu(image);
+        })
+    });
 })
 
 function renderImages(filter) {
@@ -102,7 +102,7 @@ function renderImages(filter) {
 }
 
 
-$('.dropdown').on('change', function() {
+$('.dropdown').on('change', function () {
     let $value = $('.dropdown option:selected').text();
     if ($value === 'Filter by Keyword') {
         location.reload();
@@ -111,3 +111,37 @@ $('.dropdown').on('change', function() {
         filterValue = $this.val();
     renderImages(filterValue);
 })
+
+function sortAlphabetical(a, b) {
+    console.log(images);
+    let imageTitleA = a.title;
+    let imageTitleB = b.title;
+    console.log('I am here');
+    let comparison = 0;
+    if (imageTitleA > imageTitleB) {
+        comparison = 1;
+    } else if (imageTitleA < imageTitleB) {
+        comparison = -1;
+    }
+    return comparison;
+}
+
+function sortImages(arr) {
+    console.log(arr);
+    arr.sort((a, b) => {
+        // console.log(images);
+        let imageTitleA = a.title;
+        let imageTitleB = b.title;
+        // console.log('I am here');
+        if (imageTitleA > imageTitleB) {
+            return 1;
+        } else if (imageTitleA < imageTitleB) {
+            return -1;
+        } else {
+            return 0
+        }
+    });
+    renderImages(arr);
+}
+
+$('.sort').on('click', () => sortImages(filter));
