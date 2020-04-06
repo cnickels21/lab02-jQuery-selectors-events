@@ -48,9 +48,9 @@ Estimate of time needed: 1 hour
 
 Start time: 11:45
 
-Finish time:
+Finish time: Sunday
 
-Actual time needed:
+Actual time needed: Cumulatively 2 hours or so
 
 ## Feature 6 - Styling with Flexbox
 
@@ -58,7 +58,7 @@ Estimate of time needed: 45 minutes
 
 Start time: 12:00
 
-Finish time:
+Finish time: Sunday
 
 Actual time needed:
 
@@ -66,8 +66,8 @@ Actual time needed:
 
 Estimate of time needed: 2 hours
 
-Start time:
+Start time: 5:30
 
-Finish time:
+Finish time: ---
 
-Actual time needed:
+Actual time needed: 2 hours \(not working yet\)
